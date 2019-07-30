@@ -19,4 +19,5 @@ export class AppComponent {
     name: "4 Fromages",
     price: 10
   }
+  
 }
