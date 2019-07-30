@@ -1,15 +1,43 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
+<div style="text-align:center" class ='container'>
   <h1>
     Welcome to {{ title }}!
   </h1>
+  <br>
+  <br>
+  <br>
 
-  <h2>{{ pizza.name }}</h2>
-  <p> {{pizza.price}} </p>
+<div *ngIf= "selectedPizza">
 
-  <div>
-    <label>name: </label>
-    <input [(ngModel)]="pizza.name" placeholder="name">
+  <h2>{{ selectedPizza.name }}</h2>
+  <p> Prix : {{selectedPizza.price}} € </p>
+
+  <div class="form-group">
+    <label  class="input-group-text"  >La pizza choisie : </label>
+    <input [(ngModel)]="selectedPizza.name" placeholder="name" class="form-control">
   </div>
   
+</div> <br>
+  
+
+<!-- Remplacer liste basique par 4 colonnes Bootstrap
+    dans chque colonne bootstrap, on utilisera la class card pour afficher la pizza correctement.
+-->
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-3" *ngFor="let pizza of pizzas" (click)="onSelect(pizza)">
+        <div class="card shadow mb-4">
+            <img class="card-img-top" [src]="'assets/pizza/'+pizza.image">
+            <div class="card-body">
+              <h2 class="card-title">{{pizza.name}}</h2>
+              <p>Prix : {{pizza.price}} €</p>
+            </div>
+            <div class="card-footer">
+              <button data-id="{{pizza.id}}" class="btn btn-primary">Je veux cette pizza !</button>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </div>
