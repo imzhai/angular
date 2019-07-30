@@ -1,4 +1,6 @@
 <!--The content below is only a placeholder and can be replaced.-->
+<app-menu title="Mon Application" theme="dark"></app-menu>
+
 <div style="text-align:center" class ='container'>
   <h1>
     Welcome to {{ title }}!
@@ -7,17 +9,9 @@
   <br>
   <br>
 
-<div *ngIf= "selectedPizza">
 
-  <h2>{{ selectedPizza.name }}</h2>
-  <p> Prix : {{selectedPizza.price}} € </p>
 
-  <div class="form-group">
-    <label  class="input-group-text"  >La pizza choisie : </label>
-    <input [(ngModel)]="selectedPizza.name" placeholder="name" class="form-control">
-  </div>
-  
-</div> <br>
+<app-pizza [selectedPizza] = "selectedPizza"></app-pizza>
   
 
 <!-- Remplacer liste basique par 4 colonnes Bootstrap

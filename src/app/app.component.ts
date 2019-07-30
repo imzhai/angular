@@ -1,12 +1,8 @@
 import { Component } from '@angular/core';
+import { Pizza } from '../models/pizza.model';
 
-// création d'un objet pizza
-export class Pizza {
-  id: number;
-  name: string;
-  price: number;
-  image: string;
-}
+
+
 // création de la constante pizza
 const PIZZAS : Pizza[] = [
   { id: 1, name: 'Reine', price: 12, image: 'reine.jpg' },
