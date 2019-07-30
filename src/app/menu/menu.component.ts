@@ -8,7 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class MenuComponent implements OnInit {
   @Input() title: string;
   @Input() theme: string;
-  @Input() isCollapsed = false;
+  isCollapsed = false;
 
   toggleCollapseNavbar(isCollapsed : boolean){
     console.log(isCollapsed);

@@ -1,15 +1,6 @@
 import { Component } from '@angular/core';
 import { Pizza } from '../models/pizza.model';
-
-
-
-// création de la constante pizza
-const PIZZAS : Pizza[] = [
-  { id: 1, name: 'Reine', price: 12, image: 'reine.jpg' },
-  { id: 2, name: '4 fromages', price: 13, image: '4-fromages.jpg' },
-  { id: 3, name: 'Orientale', price: 11, image: 'orientale.jpg' },
-  { id: 4, name: 'Cannibale', price: 9, image: 'cannibale.jpg'}
-];
+import { PizzaService } from './pizza.service';
 
 // Décorateur
 @Component({
@@ -21,8 +12,18 @@ const PIZZAS : Pizza[] = [
 // Composant
 export class AppComponent {
   title = 'pizza party';
-  pizzas = PIZZAS;
+  pizzas: Pizza[];
   selectedPizza: Pizza; // La variable pizza est créée mais est égale a null
+
+  // On injecte le service Pizza Service dans le composant pour pouvoir l'utiliser avec 
+  // this.pizzaService
+  constructor(private pizzaService: PizzaService){}
+
+  // équivalent du codiement.redy. 
+  //Quand le composant est prêt dans le DOM, on récupère les pizzas
+  ngOnInit(){
+
+  }
 
   onSelect(pizza: Pizza): void{
     console.log(pizza);
